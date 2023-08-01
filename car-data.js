@@ -1,3 +1,4 @@
+//car data function for reference
 async function carData() {
   try {
     const res = await fetch('https://api.data.gov.sg/v1/transport/carpark-availability', {
@@ -9,7 +10,7 @@ async function carData() {
       throw new Error('Network response was not ok');
     }
 
-    const data = await res.json(); // Parsing the response body as JSON
+    const data = await res.json(); 
     const carparkData = data.items[0].carpark_data;
 
     // Filter car parks with total lots less than or equal to 100
@@ -87,8 +88,7 @@ async function carData() {
       results[category.name] = categoryResult;
     }
 
-    console.log(results);
-    return results; // Return the object with the desired values for each category
+    return results; 
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -98,8 +98,3 @@ function fetchCarParkDataEvery60Seconds () {
   carData();
   setInterval(carData, 60000)
 }
-
-
-
-// carData()
-fetchCarParkDataEvery60Seconds()

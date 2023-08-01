@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Car Park Data</title>
   <style>
-    /* Add any custom CSS styles here */
     table {
       width: 50%;
       border-collapse: collapse;
@@ -22,7 +21,6 @@
       background-color: #f2f2f2;
     }
 
-    /* Rest of the CSS styles */
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
@@ -36,10 +34,10 @@
 <body>
   <h1>Car Park Data</h1>
   <div id="results-container">
-    <!-- The fetched data will be displayed here -->
+
   </div>
   <script>
-    // JavaScript code will go here
+
     function updateResults() {
       const resultsContainer = document.getElementById('results-container');
 
@@ -54,7 +52,7 @@
             throw new Error('Network response was not ok');
         }
 
-        const data = await res.json(); // Parsing the response body as JSON
+        const data = await res.json(); 
         const carparkData = data.items[0].carpark_data;
 
         // Filter car parks with total lots less than or equal to 100
@@ -154,12 +152,10 @@
         }
       }
     
-
-    // Call the carData function immediately
     carData();
 
-    // Poll the data every 5 seconds using setInterval
-    setInterval(carData, 1000); // 5 seconds = 5000 milliseconds
+    // Poll the data every 60 seconds using setInterval
+    setInterval(carData, 60000);
 }
 
 // Call the updateResults function when the page loads
